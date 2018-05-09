@@ -12,6 +12,8 @@ const queue = new Queue(config.globalCooldown);
 const fortnite = new FortniteClient(process.env.API_TOKEN);
 
 app.get('/', (req, res) => {
+    const start = performance.now();
+    
     res.status(404).send({
         success: false,
         code: 404,
