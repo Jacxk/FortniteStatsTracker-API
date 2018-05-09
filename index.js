@@ -1,6 +1,5 @@
 const perf_hooks = require('perf_hooks');
 const app = require('express')();
-const snekfetch = require('snekfetch');
 const FortniteClient = require('fortnite');
 
 const performance = perf_hooks.performance;
@@ -10,9 +9,9 @@ const config = require('./config.json');
 
 const cooldown = new Cooldown(config.cooldown);
 const queue = new Queue(config.globalCooldown);
-const fortnite = new FortniteClient(config.API_KEY);
+const fortnite = new FortniteClient(process.env.API_TOKEN);
 
-app.get('/u=:username&p=:platform', (req, res) => {
+app.get('/v1/u=:username&p=:platform', (req, res) => {
 
   const start = performance.now();
 
@@ -37,8 +36,8 @@ app.get('/u=:username&p=:platform', (req, res) => {
     success: false,
     code: 429,
     time: performance.now() - start,
-    data: 'API is rate limited, please try again'
-  })
+    data: 'Requests are limited, please try again in a few seconds...'
+  });
 
   const inQueue = queue.add({
     req,
@@ -73,13 +72,13 @@ queue.on('cycle', request => {
       success: false,
       code: 500,
       time: performance.now() - request.start,
-      data: 'Internal Server Error'
+      data: 'Internal Server Error...'
     });
 
   });
 
 });
 
-const server = app.listen(3000, () => {
+const server = app.listen(process.env.PORT || 8080, () => {
   console.log(`Listening on port number ${server.address().port}`);
 });

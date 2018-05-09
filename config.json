@@ -1,5 +1,4 @@
 {
   "cooldown": 10000,
-  "globalCooldown": 2500,
-  "API_KEY": process.env.API_TOKEN
+  "globalCooldown": 2500
 }

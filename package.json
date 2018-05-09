@@ -1,0 +1,23 @@
+{
+  "name": "fortnitestatstracker-api",
+  "version": "1.0.0",
+  "description": "The FortniteStatsTracker desktop app API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jacxk/FortniteStatsTracker-API.git"
+  },
+  "author": "SebastiaanYN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jacxk/FortniteStatsTracker-API/issues"
+  },
+  "homepage": "https://github.com/Jacxk/FortniteStatsTracker-API#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "fortnite": "^4.1.1"
+  }
+}
