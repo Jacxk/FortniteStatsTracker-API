@@ -98,7 +98,7 @@ const ping = () => {
     const http = require('http');
     setInterval(() => {
         http.get("http://jackbot-djs.herokuapp.com");
-    }, 300000);
-}
+    }, 10 * 300000);
+};
 
 ping();
