@@ -27,7 +27,7 @@ app.get('/v1/u=:username&p=:platform', (req, res) => {
     const start = performance.now();
 
     let ip;
-    if (req.headers['x-forwarded-for']) ip = req.headers['x-forwarded-for'].split(',').pop();
+    if (req.headers['x-forwarded-for']) ip = req.headers['x-forwarded-for'].split(',')[0];
     else ip = req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress;
     if (!ip) return res.status(500).send({
         success: false,
