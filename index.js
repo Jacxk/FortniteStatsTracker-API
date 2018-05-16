@@ -90,15 +90,6 @@ queue.on('cycle', request => {
 
 });
 
-const server = app.listen(process.env.PORT || 8080, () => {
+const server = app.listen(process.env.PORT || 9090, () => {
     console.log(`Listening on port number ${server.address().port}`);
 });
-
-const ping = () => {
-    const http = require('http');
-    setInterval(() => {
-        http.get("http://jackbot-djs.herokuapp.com");
-    }, 10 * 300000);
-};
-
-ping();
